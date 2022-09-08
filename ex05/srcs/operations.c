@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwong <hwong@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 21:15:12 by hwong             #+#    #+#             */
-/*   Updated: 2022/09/08 07:57:30 by hwong            ###   ########.fr       */
+/*   Created: 2022/09/08 07:58:05 by hwong             #+#    #+#             */
+/*   Updated: 2022/09/08 08:49:16 by hwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char *))
+int	add(int a, int b)
 {
-	int	i;
+	return (a + b);
+}
 
-	i = 0;
-	while (tab[i])
-	{
-		if ((*f)(tab[i]))
-			i++;
-		else
-			return (0);
-	}
+int	sub(int a, int b)
+{
+	return (a - b);
+}
+
+int	mult(int a, int b)
+{
+	return (a * b);
+}
+
+int	div(int a, int b)
+{
+	return (a / b);
+}
+
+int	mod(int a, int b)
+{
+	return (a % b);
 }

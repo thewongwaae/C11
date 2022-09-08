@@ -1,56 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwong <hwong@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 15:53:17 by hwong             #+#    #+#             */
-/*   Updated: 2022/09/08 07:57:34 by hwong            ###   ########.fr       */
+/*   Created: 2022/09/08 09:01:28 by hwong             #+#    #+#             */
+/*   Updated: 2022/09/08 09:05:17 by hwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "do_op.h"
 
-/*
-void	ft_putnbr(int num)
+void	ft_putchar(char c)
 {
-	char	c;
-
-	c = num + '0';
 	write(1, &c, 1);
 }
-*/
 
-void	ft_foreach(int *tab, int length, void (*f)(int))
+void	ft_putnbr(int nb)
 {
-	int	i;
-
-	i = 0;
-	while (i < length)
+	if (nb == -2147483648)
 	{
-		(*f)(tab[i]);
-		i++;
+		write(1, "-2147483648", 11);
 	}
-}
-
-/*
-#include <stdlib.h>
-int	main(void)
-{
-	int	i;
-	int	*tab;
-	int	length;
-
-	length = 10;
-	tab = (int *)malloc(length * sizeof(int));
-	i = 0;
-	while (i < length)
+	if (nb < 0)
 	{
-		tab[i] = i;
-		i++;
+		ft_putchar('-');
+		nb *= -1;
 	}
-	ft_foreach(tab, length, &ft_putnbr);
-	free(tab);
+	if (nb < 10)
+	{
+		ft_putchar(nb + 48);
+		return ;
+	}
+	else
+		ft_putnbr(nb / 10);
+	ft_putnbr(nb % 10);
 }
-*/

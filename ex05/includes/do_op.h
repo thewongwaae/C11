@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   do_op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwong <hwong@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 21:15:12 by hwong             #+#    #+#             */
-/*   Updated: 2022/09/08 07:57:30 by hwong            ###   ########.fr       */
+/*   Created: 2022/09/08 08:02:41 by hwong             #+#    #+#             */
+/*   Updated: 2022/09/08 09:03:02 by hwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char *))
-{
-	int	i;
+#ifndef DO_OP_H
+# define DO_OP_H
 
-	i = 0;
-	while (tab[i])
-	{
-		if ((*f)(tab[i]))
-			i++;
-		else
-			return (0);
-	}
-}
+# include <unistd.h>
+
+int		add(int a, int b);
+int		sub(int a, int b);
+int		mult(int a, int b);
+int		div(int a, int b);
+int		mod(int a, int b);
+int		ft_atoi(char *str);
+void	ft_putnbr(int nb);
+void	ft_putchar(char c);
+
+#endif

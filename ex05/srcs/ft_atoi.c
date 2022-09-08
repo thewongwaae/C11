@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwong <hwong@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 21:15:12 by hwong             #+#    #+#             */
-/*   Updated: 2022/09/08 07:57:30 by hwong            ###   ########.fr       */
+/*   Created: 2022/09/08 08:07:08 by hwong             #+#    #+#             */
+/*   Updated: 2022/09/08 08:48:25 by hwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char *))
+int	ft_atoi(char *str)
 {
-	int	i;
+	int	output;
+	int	sign;
 
-	i = 0;
-	while (tab[i])
+	output = 0;
+	sign = 1;
+	if (*str)
 	{
-		if ((*f)(tab[i]))
-			i++;
-		else
-			return (0);
+		while (*str == 32 || (*str >= 9 && *str <= 13))
+			str++;
+		while ((*str == '+') || (*str == '-'))
+		{
+			if (*str == '-')
+				sign *= -1;
+			str++;
+		}
+		while (*str >= '0' && *str <= '9')
+		{
+			output *= 10;
+			output += *str - '0';
+			str++;
+		}
+		return (output * sign);
 	}
+	return (0);
 }
